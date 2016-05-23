@@ -4,9 +4,9 @@ import com.onehao.customer.CustomerBo;
 
 public class CustomerBoImpl implements CustomerBo {
 
-	public String getMsg() {
+	public String getMsg(String username) {
 
-		return "RESTEasy + Spring example";
+		return String.format("Hello %s",username);
 		
 	}
 

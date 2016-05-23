@@ -2,6 +2,6 @@ package com.onehao.customer;
 
 public interface CustomerBo{
 	
-	String getMsg();
+	String getMsg(String username);
 	
 }
