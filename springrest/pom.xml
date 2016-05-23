@@ -20,6 +20,11 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.0</version>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.0</version>
+			</plugin>
 		</plugins>
 	</build>
 	<repositories>
@@ -58,11 +63,25 @@
 		</dependency>
 
 		<!-- need for solution 1, if your container don't have this -->
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.3</version>
+			<scope>provided</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-spring</artifactId>
+			<version>3.0.13.Final</version>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jettison-provider -->
+		<dependency>
+		    <groupId>org.jboss.resteasy</groupId>
+		    <artifactId>resteasy-jettison-provider</artifactId>
+		    <version>3.0.13.Final</version>
+		    <scope>privided</scope>
+		</dependency>
+		
 	</dependencies>
 </project>
