@@ -83,5 +83,9 @@
 		    <scope>privided</scope>
 		</dependency>
 		
+		
+
+		<!-- http://mvnrepository.com/artifact/com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider -->
+		
 	</dependencies>
 </project>

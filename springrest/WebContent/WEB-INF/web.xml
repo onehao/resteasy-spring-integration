@@ -8,7 +8,7 @@
 	
 	<context-param>
 		<param-name>resteasy.resources</param-name>
-		<param-value>com.onehao.rest.PrintService</param-value>
+		<param-value>com.onehao.rest.PrintService,com.onehao.rest.HealthCheck</param-value>
 	</context-param>
 
 	<listener>
@@ -17,18 +17,19 @@
                 </listener-class>
 	</listener>
 
-<!--  	<listener>
+  	<listener>
 		<listener-class>
                         org.springframework.web.context.ContextLoaderListener
                 </listener-class>
 	</listener>
--->
+
+<!--
 	<listener>
 		<listener-class>
 			org.jboss.resteasy.plugins.spring.SpringContextLoaderListener
 		</listener-class>
 	</listener>
-
+-->
 	<servlet>
 		<servlet-name>resteasy-servlet</servlet-name>
 		<servlet-class>
