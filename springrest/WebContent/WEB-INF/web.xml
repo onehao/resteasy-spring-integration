@@ -10,6 +10,10 @@
 		<param-name>resteasy.resources</param-name>
 		<param-value>com.onehao.rest.PrintService,com.onehao.rest.HealthCheck</param-value>
 	</context-param>
+	<context-param>
+        <param-name>resteasy.providers</param-name>
+        <param-value>com.onehao.exception.RESTExceptionHandler</param-value>
+	</context-param>
 
 	<listener>
 		<listener-class>

@@ -7,5 +7,7 @@
 	
 	<bean id="customerBo" class="com.onehao.customer.impl.CustomerBoImpl">
         </bean>
+    <bean id="health" class="com.onehao.health.impl.Health">
+        </bean>
 
 </beans>

@@ -2,6 +2,7 @@ package com.onehao.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
@@ -10,6 +11,10 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.jboss.resteasy.annotations.providers.jackson.Formatted;
+
+import com.onehao.context.SpringApplicationContext;
+import com.onehao.health.IHealth;
+import com.onehao.health.impl.Health;
 
 
 @Path("/health")
@@ -20,23 +25,6 @@ public class HealthCheck {
 	@Formatted
 	public Health getFormattedProduct() {
 		return new Health();
-	}
-	
-	class Health {
-		String message = "up and runnings";
-		public String getMessage() {
-			return message;
-		}
-		public String getStatus() {
-			return status;
-		}
-		String status = "OK";
-		
-		public Health(){}
-		public Health(String message, String status){
-			this.message = message;
-			this.status = status;
-		}
 	}
 	
 	@XmlRootElement(name = "health")
@@ -65,6 +53,17 @@ public class HealthCheck {
 	@Formatted
 	public Health getHealthCheck() {
 		return new Health("hello michael", "OK");
+	}
+	
+	@GET
+	@Produces("application/json")
+	@Path("/check/{message}")
+	@Formatted
+	public Response getHealthCheck2(@PathParam("message") String message) {
+		IHealth health = (IHealth) SpringApplicationContext.getBean("health");
+		health.setMessage(message);
+		return Response.status(200).entity(health).type(MediaType.APPLICATION_JSON).build();
+
 	}
 	
 	@GET
