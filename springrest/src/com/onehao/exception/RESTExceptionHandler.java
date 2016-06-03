@@ -15,7 +15,7 @@ public class RESTExceptionHandler implements ExceptionMapper<Exception> {
 	@Override
 	public Response toResponse(Exception e) {
 		if (e instanceof UnrecognizedPropertyException || e instanceof JsonParseException) {
-			return Response.status(415).entity(new Result(e.getMessage(), "failed")).type(MediaType.APPLICATION_JSON)
+			return Response.status(415).entity(new Result(e.getMessage(), "failed")).tye(MediaType.APPLICATION_JSON)
 					.build();
 		} else {
 			return Response.serverError().entity(new Result(e.getMessage(), "failed")).type(MediaType.APPLICATION_JSON)
